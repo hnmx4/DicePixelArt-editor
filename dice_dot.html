@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- page info -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+    <title>pixel art with dice</title>
+    <!-- file link -->
+    <link href="dice_dot.css" rel="stylesheet" type="text/css" />
+
+    <!-- script -->
+    <script type="text/javascript">
+      $(function () {
+      var rowC = '<tr>', rowP = '<tr>';
+        var pals = ['dice_img/0.png', 'dice_img/1.png', 'dice_img/2.png', 'dice_img/3.png', 'dice_img/4.png', 'dice_img/5.png', 'dice_img/6.png'];
+        var pushed = false, rflag = false;
+        var dice = '';
+
+        /*---------- キャンバスの作成 ----------*/
+        for (i=0;i<30;i++) rowC += '<td>&nbsp;</td>';
+			rowC += '<tr>';
+			for (i=0;i<30;i++) $('#canvas').append(rowC);
+
+					/*---------- パレットの作成 -----------*/
+					for (i=0;i<7;i++) rowP += '<td>&nbsp;</td>';
+							rowP += '<tr>';
+							$('#palette').html(rowP);
+							for (i=0;i<7;i++) $('#palette td').eq(i).css('background-image', 'url(' + pals[i] + ')');
+
+									/*---------- サイコロの目を選択 ----------*/
+									$('#palette td').click(function () {
+										$(this).css({ borderColor: 'red' }).siblings().css({ borderColor: 'gray' });
+										dice = $(this).css('background-image');
+									}).eq(0).click();
+
+									/*---------- キャンバスに描写 ---------*/
+									$('#canvas td').mousedown(function () {
+										pushed = true;
+										$(this).css('background-image', dice);
+										return false;
+									}).mousemove(function () {
+										if (pushed) $(this).css('background-image', dice);
+										return false;
+									});
+									$(document).mouseup(function () {
+										pushed = false;
+									});
+
+									/*----------- クリア ------------*/
+									$('#clear').click(function () {
+									for (i=0;i<900;i++) $('#canvas td').eq(i).css('background-image', 'url(' + pals[0] + ')');
+											});
+
+											});
+											</script>
+  </head>
+  <body>
+    <div id="head">
+      <h1>pixel art with dice</h1>
+    </div>
+    <div id="contents">
+      <div id="main">
+        <table id="canvas"></table>
+      </div>
+      <div id="inputs">
+        <input type="button" value="Clear" id="clear" /><br />
+        <table id="palette"></table>
+        <div class="text">
+          <p class="ex">
+            Clear : エディタ初期化<br />
+            パレット : サイコロの目を変える
+          </p>
+          * サイコロの目でドット絵が描けます<br />
+          * 上のパレットから使うサイコロの目を選びましょう<br />
+          * 保存したいときはスクリーンショットを撮りましょう<br />
+          <br />
+          + 動作確認 : GoogleChrome / Internetexplorer
+        </div>
+      </div>
+    </div>
+    <div id="foot">
+      Copyrightc2012 <a href="http://twitter.com/kokusou0628" target="_blank">@kokuosu0628</a>
+      All rights reserved.
+    </div>
+  </body>
+</html>
