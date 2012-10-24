@@ -1,6 +1,5 @@
 ﻿/* ----------body---------- */
-body
-{
+body {
     width:900px;
     height:100%;
     margin:0px auto;
@@ -9,8 +8,7 @@ body
 a{color:#80aba9}
 
 /* ----------head---------- */
-h1
-{
+h1 {
     height:22px;
     margin:15px 0px 5px 0px;
     padding:5px;
@@ -20,52 +18,48 @@ h1
 
 /* ----------contents---------- */
 #contents{}
-#inputs
-{
+#inputs {
     width:280px;
     height:50px;
     margin:10px;
     float:left;
 }
-#main
-{
+#main {
     width:560px;
     height:560px;
     margin:10px;
     /*border:1px black solid;*/
     float:left;
 }
-.text{
-	margin:30px 10px;
-	line-height:150%;
-	font-size:12px;
+.text {
+    margin:30px 10px;
+    line-height:150%;
+    font-size:12px;
 }
-.ex{
-	color:#80aba9;
-	font-weight:bold;
+.ex {
+    color:#80aba9;
+    font-weight:bold;
 }
-#palette{
+#palette {
     margin:10px 5px;
 }
-#palette td
-{
+#palette td {
     padding:1px;
 }
 /*------------ table ------------*/
 table {
-  border-collapse: collapse;
-  margin-bottom: 15px;
+    border-collapse: collapse;
+    margin-bottom: 15px;
 }
 td {
-  border: 1px solid gray;
-  width: 15px;
-  line-height: 15px;
-  cursor: pointer;
+    border: 1px solid gray;
+    width: 15px;
+    line-height: 15px;
+    cursor: pointer;
 }
 
 /* ----------foot---------- */
-#foot
-{
+#foot {
     font-size:12px;
     clear:both;
 }
