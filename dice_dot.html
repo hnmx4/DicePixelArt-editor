@@ -20,6 +20,7 @@
         for (i=0;i<30;i++) rowC += '<td>&nbsp;</td>';
 			rowC += '<tr>';
 			for (i=0;i<30;i++) $('#canvas').append(rowC);
+					   for (i=0;i<900;i++) $('#canvas td').eq(i).css('background-image', 'url(' + pals[0] + ')');
 
 					/*---------- パレットの作成 -----------*/
 					for (i=0;i<7;i++) rowP += '<td>&nbsp;</td>';
@@ -62,9 +63,9 @@
       <div id="main">
         <table id="canvas"></table>
       </div>
-      <div id="inputs">
-        <input type="button" value="Clear" id="clear" /><br />
-        <table id="palette"></table>
+      <div id="side">
+	<p><input type="button" value="Clear" id="clear" />
+        <table id="palette"></table></p>
         <div class="text">
           <p class="ex">
             Clear : エディタ初期化<br />
