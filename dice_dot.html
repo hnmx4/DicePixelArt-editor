@@ -28,21 +28,21 @@
 							for (i=0;i<7;i++) $('#palette td').eq(i).css('background-image', 'url(' + pals[i] + ')');
 
 									/*---------- サイコロの目を選択 ----------*/
-									$('#palette td').click(function () {
-										$(this).css({ borderColor: 'red' }).siblings().css({ borderColor: 'gray' });
-										dice = $(this).css('background-image');
+									$('#palette').click(function (event) {
+										$(event.target).css({ borderColor: 'red' }).siblings().css({ borderColor: 'gray' });
+									  	dice = $(event.target).css('background-image');
 									}).eq(0).click();
 
 									/*---------- キャンバスに描写 ---------*/
-									$('#canvas td').mousedown(function () {
+									$('#canvas').mousedown(function (event) {
 										pushed = true;
-										$(this).css('background-image', dice);
+										$(event.target).css('background-image', dice);
 										return false;
-									}).mousemove(function () {
-										if (pushed) $(this).css('background-image', dice);
+									}).mousemove(function (event) {
+										if (pushed) $(event.target).css('background-image', dice);
 										return false;
 									});
-									$(document).mouseup(function () {
+									$(document).mouseup(function (event) {
 										pushed = false;
 									});
 
